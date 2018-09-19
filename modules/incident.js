@@ -25,9 +25,9 @@ exports.execute = (req, res) => {
                 let attachments = [];
                 incident.forEach(function (incident) {
                     let fields = [];
-                    fields.push({title: "Incident", value: FF__Incident__c.Name, short: true});
-                    fields.push({title: "Id", value: FF__Incident__c.Incident.Id, short: true});
-                    fields.push({title: "Open in Salesforce:", value: oauthObj.instance_url + "/" + FF__Incident__c.Id, short:false});
+                    fields.push({title: "Incident", value: incident.Name, short: true});
+                    fields.push({title: "Id", value: incident.Id, short: true});
+                    fields.push({title: "Open in Salesforce:", value: oauthObj.instance_url + "/" + incident.Id, short:false});
                     attachments.push({
                         color: "#FCB95B",
                         fields: fields
