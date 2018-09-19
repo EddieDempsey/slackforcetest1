@@ -3,7 +3,7 @@
 let auth = require("./slack-salesforce-auth"),
     force = require("./force"),
 
-    SECRET = process.env.SLACK_SIGNING_SECRET;
+    SECRET = process.env.SLACK_TOKEN;
 
 exports.execute = (req, res) => {
 
