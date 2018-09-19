@@ -15,7 +15,7 @@ exports.execute = (req, res) => {
     let slackUserId = req.body.user_id,
         oauthObj = auth.getOAuthObject(slackUserId),
         limit = req.body.text,
-        q = "SELECT FF__Subject__c FROM FF__Incident__c ORDER BY FF__Subject__c DESC";
+        q = "SELECT Id, FF__Subject__c FROM FF__Incident__c ORDER BY FF__Subject__c DESC";
 
 
     force.query(oauthObj, q)
@@ -26,7 +26,7 @@ exports.execute = (req, res) => {
                 incident.forEach(function (incident) {
                     let fields = [];
                     fields.push({title: "Incident Subject", value: incident.FF__Subject__c, short: true});
-                    //fields.push({title: "Id", value: incident.Id, short: true});
+                    fields.push({title: "Id", value: incident.Id, short: true});
                     //fields.push({title: "Open in Salesforce:", value: oauthObj.instance_url + "/" + incident.Id, short:false});
                     attachments.push({
                         color: "#FCB95B",
