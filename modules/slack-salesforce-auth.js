@@ -24,7 +24,7 @@ exports.logout = (req,res) => {
 
 exports.loginLink = (req, res) => {
 
-    if (req.body.token != SLACK_SIGNIGN_SECRET) {
+    if (req.body.token != SLACK_SIGNING_SECRET) {
         res.send("Invalid token");
         return;
     }
