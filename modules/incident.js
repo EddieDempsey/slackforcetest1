@@ -15,7 +15,7 @@ exports.execute = (req, res) => {
     let slackUserId = req.body.user_id,
         oauthObj = auth.getOAuthObject(slackUserId),
         limit = req.body.text,
-        q = "SELECT Id, FF__Subject__c FROM FF__Incident__c where FF__Status__c != Closed ORDER BY Name DESC";
+        q = "SELECT Id, FF__Subject__c FROM FF__Incident__c WHERE FF__Status__c != Closed ORDER BY FF__Subject__c DESC";
 
 
     force.query(oauthObj, q)
