@@ -22,10 +22,9 @@
         "description": "Salesforce login URL",
         "value":"https://login.salesforce.com"
     },
-    "SLACK_SIGNING_SECRET": {
-        "description": "Slack Signing Secret",
-        "value":"",
-        "required":false
+    "SLACK_TOKEN": {
+        "description": "Slack token",
+        "value":""
     }
   }
 }

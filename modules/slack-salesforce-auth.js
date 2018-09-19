@@ -1,7 +1,6 @@
 "use strict";
 
-var SLACK_LOGIN_TOKEN = process.env.SLACK_LOGIN_TOKEN,
-    SLACK_LOGOUT_TOKEN = process.env.SLACK_LOGOUT_TOKEN,
+var SLACK_TOKEN = process.env.SLACK_TOKEN,
     SF_CLIENT_ID = process.env.SF_CLIENT_ID,
     SF_CLIENT_SECRET = process.env.SF_CLIENT_SECRET,
     SF_LOGIN_URL = process.env.SF_LOGIN_URL,
@@ -10,7 +9,7 @@ var SLACK_LOGIN_TOKEN = process.env.SLACK_LOGIN_TOKEN,
 
 exports.logout = (req,res) => {
 
-    if (req.body.token != SLACK_LOGOUT_TOKEN) {
+    if (req.body.token != SLACK_TOKEN) {
         res.send("Invalid token");
         return;
     }
@@ -24,7 +23,7 @@ exports.logout = (req,res) => {
 
 exports.loginLink = (req, res) => {
 
-    if (req.body.token != SLACK_SIGNING_SECRET) {
+    if (req.body.token != SLACK_TOKEN) {
         res.send("Invalid token");
         return;
     }

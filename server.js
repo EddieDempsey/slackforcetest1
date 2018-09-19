@@ -3,7 +3,7 @@
 let express = require('express'),
     bodyParser = require('body-parser'),
     auth = require('./modules/slack-salesforce-auth'),
-    opportunity = require('./modules/opportunity'),
+    incident = require('./modules/incident'),
     actions = require('./modules/actions'),
     app = express();
 
@@ -17,7 +17,7 @@ app.use('/', express.static(__dirname + '/www')); // serving company logos after
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/actions', actions.handle);
-app.post('/pipeline', opportunity.execute);
+app.post('/incident', incident.execute);
 app.post('/login', auth.loginLink);
 app.post('/logout', auth.logout);
 app.get('/login/:slackUserId', auth.oauthLogin);
