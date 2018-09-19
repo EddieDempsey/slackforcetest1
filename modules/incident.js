@@ -27,7 +27,7 @@ exports.execute = (req, res) => {
                     let fields = [];
                     fields.push({title: "Incident Subject", value: incident.FF__Subject__c, short: true});
                     fields.push({title: "Id", value: incident.Id, short: true});
-                    //fields.push({title: "Open in Salesforce:", value: oauthObj.instance_url + "/" + incident.Id, short:false});
+                    fields.push({title: "Open in Salesforce:", value: oauthObj.instance_url + "/" + incident.Id, short:false});
                     attachments.push({
                         color: "#FCB95B",
                         fields: fields
