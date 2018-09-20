@@ -25,6 +25,7 @@ exports.execute = (req, res) => {
         force.query(oauthObj,q)
         .then(data => {
             let incident = JSON.parse(data).records;
+            console.log(incident);
             if (incident && incident.length > 0) {
             incid = incident.Id;
             } else {
