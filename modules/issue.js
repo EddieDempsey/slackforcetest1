@@ -28,8 +28,8 @@ exports.execute = (req, res) => {
         .then(data => {
             let incident = JSON.parse(data).records;
             if (incident && incident.length > 0) {
-            incid = incident.Id;
-                res.send(incid);
+            incid = text(incident.Id);
+            res.send(incid);
             } else {
                 res.send("No records");
             }
