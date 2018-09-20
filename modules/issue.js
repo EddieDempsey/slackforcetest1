@@ -45,7 +45,7 @@ exports.execute = (req, res) => {
     //}
 
     //function create() {
-        force.create(oauthObj, "FF__Incident_Activity__c",
+        await force.create(oauthObj, "FF__Incident_Activity__c",
         {
             FF__Incident__c: incid,
             FF__Subject__c: subject,
