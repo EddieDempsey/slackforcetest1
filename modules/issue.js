@@ -21,15 +21,14 @@ exports.execute = (req, res) => {
         q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + name + "%' LIMIT 1";
     var incid;
 
-    //res.send("test");
+    res.send(name);
     
     function query() {
         force.query(oauthObj,q)
         .then(data => {
             let incident = JSON.parse(data).records;
             if (incident && incident.length > 0) {
-            incid = text(incident.Id);
-            res.send(incid);
+            incid = incident.Id;
             } else {
                 res.send("No records");
             }
