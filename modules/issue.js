@@ -20,11 +20,13 @@ exports.execute = (req, res) => {
         q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + params[0] + "%' LIMIT 1";
         incid = "";
 
-    await force.query(oauthObj,q)
+    function query() {
+        force.query(oauthObj,q)
         .then(data => {
             let i = JSON.parse(data).records;
             if (i && i.length>0){
             incid = i.Id;
+
             } else {
                 res.send("No records");
             }
@@ -37,8 +39,10 @@ exports.execute = (req, res) => {
                 res.send("An error as occurred");
             }
         });
+    }
 
-    force.create(oauthObj, "FF__Incident_Activity__c",
+    function create() {
+        force.create(oauthObj, "FF__Incident_Activity__c",
         {
             FF__Incident__c: incid,
             FF__Subject__c: subject,
@@ -66,4 +70,7 @@ exports.execute = (req, res) => {
                 res.send("An error as occurred");
             }
         });
+    }
+
+    query().then(() => create());
 };
