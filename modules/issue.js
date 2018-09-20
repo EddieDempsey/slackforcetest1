@@ -29,6 +29,7 @@ exports.execute = (req, res) => {
             let incident = JSON.parse(data).records;
             if (incident && incident.length > 0) {
             incid = incident.Id;
+                res.send(incid);
             } else {
                 res.send("No records");
             }
