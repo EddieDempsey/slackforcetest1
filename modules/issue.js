@@ -21,7 +21,7 @@ exports.execute = (req, res) => {
         q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + name + "%' LIMIT 1";
     var incid;
     
-    function query() {
+    //function query() {
         force.query(oauthObj,q)
         .then(data => {
             let incident = JSON.parse(data).records;
@@ -42,9 +42,9 @@ exports.execute = (req, res) => {
                 res.send("An error as occurred");
             }
         });
-    }
+    //}
 
-    function create() {
+    //function create() {
         force.create(oauthObj, "FF__Incident_Activity__c",
         {
             FF__Incident__c: incid,
@@ -72,14 +72,14 @@ exports.execute = (req, res) => {
                 res.send("An error as occurred");
             }
         });
-    }
+    //}
 
-    async function run() {
+   /*  async function run() {
         console.log('starting run..');
         await query();
         console.log('finished query.. starting create..');
         create();
         console.log('created issue');
     }
-    run();
+    run(); */
 };
