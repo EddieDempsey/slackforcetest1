@@ -15,9 +15,10 @@ exports.execute = (req, res) => {
     let slackUserId = req.body.user_id,
         oauthObj = auth.getOAuthObject(slackUserId),
         params = req.body.text.split(":"),
+        name = params[0],
         subject = params[1],
         description = params[2],
-        q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + params[0] + "%' LIMIT 1";
+        q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + name + "%' LIMIT 1";
     var incid;
 
     //res.send("test");
@@ -25,9 +26,9 @@ exports.execute = (req, res) => {
     function query() {
         force.query(oauthObj,q)
         .then(data => {
-            let i = JSON.parse(data).records;
-            if (i && i.length>0){
-            incid = i.Id;
+            let incident = JSON.parse(data).records;
+            if (incident && incident.length > 0) {
+            incid = incident.Id;
             } else {
                 res.send("No records");
             }
