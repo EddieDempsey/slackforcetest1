@@ -4,7 +4,7 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     auth = require('./modules/slack-salesforce-auth'),
     incident = require('./modules/incident'),
-    issue = require('./modules/issu'),
+    issue = require('./modules/issue'),
     actions = require('./modules/actions'),
     app = express();
 
