@@ -25,7 +25,6 @@ exports.execute = (req, res) => {
         force.query(oauthObj,q)
         .then(data => {
             let incident = JSON.parse(data).records;
-            console.log(incident.Id);
             if (incident && incident.length > 0) {
                 incident.forEach( function(incident){
                     incid = incident.Id;
@@ -69,7 +68,6 @@ exports.execute = (req, res) => {
         .catch((error) => {
             if (error.code == 401) {
                 res.send(`Visit this URL to login to Fusion: https://${req.hostname}/login/` + slackUserId);
-
             } else {
                 res.send("An error as occurred");
             }
@@ -77,7 +75,9 @@ exports.execute = (req, res) => {
     }
 
     async function run() {
+        console.log('starting run..')
         await query();
+        console.log('finished query.. starting create..')
         create();
     }
     run();
