@@ -4,6 +4,7 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     auth = require('./modules/slack-salesforce-auth'),
     incident = require('./modules/incident'),
+    issue = require('./modules/issu'),
     actions = require('./modules/actions'),
     app = express();
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/actions', actions.handle);
 app.post('/incident', incident.execute);
+app.post('/issue', issue.execute);
 app.post('/login', auth.loginLink);
 app.post('/logout', auth.logout);
 app.get('/login/:slackUserId', auth.oauthLogin);
