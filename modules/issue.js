@@ -75,10 +75,11 @@ exports.execute = (req, res) => {
     }
 
     async function run() {
-        console.log('starting run..')
+        console.log('starting run..');
         await query();
-        console.log('finished query.. starting create..')
+        console.log('finished query.. starting create..');
         create();
+        console.log('created issue');
     }
     run();
 };
