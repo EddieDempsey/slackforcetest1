@@ -17,9 +17,8 @@ exports.execute = (req, res) => {
         params = req.body.text.split(":"),
         subject = params[1],
         description = params[2],
-        q = "SELECT Id FROM FF__Incident__c where Name LIKE '%INC-0000%'";
-        //q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + params[0] + "%' LIMIT 1";
-    var incid = 'a0h0b00000QjihHAAR';
+        q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + params[0] + "%' LIMIT 1";
+    var incid;
 
     //res.send("test");
     
@@ -28,7 +27,7 @@ exports.execute = (req, res) => {
         .then(data => {
             let i = JSON.parse(data).records;
             if (i && i.length>0){
-            //incid = i.Id;
+            incid = i.Id;
             } else {
                 res.send("No records");
             }
