@@ -55,7 +55,7 @@ exports.execute = (req, res) => {
             let fields = [];
             fields.push({title: "Subject", value: subject, short:false});
             fields.push({title: "Description", value: description, short:false});
-            fields.push({title: "Open in Fusion", value: oauthObj.instance_url + "/" + data.Id, short:false});
+            fields.push({title: "Open in Fusion", value: oauthObj.instance_url + "/" + data.id, short:false});
             let message = {
                 text: "A new Issue has been created:",
                 attachments: [
