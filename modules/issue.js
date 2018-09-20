@@ -20,7 +20,8 @@ exports.execute = (req, res) => {
         description = params[2],
         q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + name + "%' LIMIT 1";
     var incid;
-
+    
+    console.log(q);
     res.send(name);
     
     function query() {
