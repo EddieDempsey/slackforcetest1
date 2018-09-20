@@ -27,7 +27,10 @@ exports.execute = (req, res) => {
             let incident = JSON.parse(data).records;
             console.log(incident.Id);
             if (incident && incident.length > 0) {
-            incid = incident.Id;
+                incident.forEach( function(incident){
+                    incid = incident.Id;
+                    console.log(incid);
+                });
             } else {
                 res.send("No records");
             }
