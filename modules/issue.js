@@ -20,7 +20,8 @@ exports.execute = (req, res) => {
         q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + params[0] + "%' LIMIT 1";
     var incid;
 
-    res.send("test");
+    //res.send("test");
+    
     function query() {
         force.query(oauthObj,q)
         .then(data => {
