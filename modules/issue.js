@@ -50,7 +50,7 @@ exports.execute = (req, res) => {
             FF__Incident__c: incid,
             FF__Subject__c: subject,
             FF__Description__c: description,
-            RecordTypeId: "0120b000000ttK5AAI",
+            RecordTypeId: "0120b000000ttK5AAI"
         })
         .then(data => {
             let fields = [];
