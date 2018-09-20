@@ -74,5 +74,9 @@ exports.execute = (req, res) => {
         });
     }
 
-    query().then(() => create());
+    async function run() {
+        await query();
+        create();
+    }
+    run();
 };
