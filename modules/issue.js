@@ -18,10 +18,10 @@ exports.execute = (req, res) => {
         subject = params[1],
         description = params[2],
         q = "SELECT Id FROM FF__Incident__c where Name LIKE '%" + params[0] + "%' LIMIT 1";
-        //incid = "";
+        incid = "";
 
     res.send("test");
-    /* function query() {
+    function query() {
         force.query(oauthObj,q)
         .then(data => {
             let i = JSON.parse(data).records;
@@ -73,5 +73,5 @@ exports.execute = (req, res) => {
         });
     }
 
-    query().then(() => create()); */
+    query().then(() => create());
 };
